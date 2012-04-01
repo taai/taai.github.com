@@ -1,0 +1,87 @@
+---
+layout: projectpage
+title: Apostrophe
+---
+
+<style>
+#demoWidget {
+	width: 420px;
+	text-align: right;
+}
+
+#demoTextarea {
+	width: 400px;
+	height: 80px;
+	padding: 3px;
+	border: 1px solid #bebeb9;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+a.bookmarklet, a.bookmarklet:link, a.bookmarklet:hover {
+	padding: 1px 10px;
+	background: #ffffff;
+	border: 1px solid #ff6501;
+	color: #ff6501;
+	font-weight: bold;
+	text-decoration: none;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+</style>
+
+<article>
+	<h1>Apostrophe</h1>
+
+	<p>Īsumā: <em>Apostrophe</em> ir <em>jQuery</em> spraudnis, kas padara iespējamu interneta lapās rakstīt latviski, ja datorā šādas iespējas nav.</p>
+	<p>Tas strādā tāpat, kā tad, kad ieinstalēts daudziem zināmais "Tildes birojs" - ar <em>apostrofa</em> taustiņu ('). Piemēram, nospiežot <strong>'</strong> un burtu <strong>a</strong>, teksta ievades laukā tiek ierakstīts burts <strong>ā</strong> un tā tālāk...</p>
+
+
+	<aside id="demoWidget">
+		<textarea id="demoTextarea">Izmēģini!</textarea>
+		<br/>
+		<label for="enableApostrophe">Ieslēgt <em>Apostrophe</em>: </label><input type="checkbox" id="enableApostrophe" />
+	</aside>
+
+
+	<p>Vēlies rakstīt latviski jebkurā interneta vietnē? - Izmanto <em>bookmarklet</em>’u!<br/>
+	<a class="bookmarklet" href="javascript:(function(){function l(a,b){var c=document.createElement('script');c.type='text/javascript';c.src=a;c.onload=b}function i(){if(!jQuery){l('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js',init)}else if(!jQuery.apostrophe){l('http://taai.github.com/js/jquery.apostrophe.min.js',init)}else{jQuery('textarea, input[type=text]').apostrophe()}}i()})();" rel="nofollow">A'</a> - “ievelc” šo <em>bookmarklet</em>’u saišu jeb linku joslā un tad, kad gribēsi kādā interneta vietnē rakstīt latviski, vienkārši noklikšķini uz tā!</p>
+	<p>Starp citu, ja tev ir iespēja, nemokies un uzinstalē latviešu valodas tastatūras izkārtojumu savā datorā: <a href="http://laacz.lv/apostrofs/">laacz.lv/apostrofs</a>!</p>
+
+
+	<h2>Izstrādātājiem</h2>
+	
+	<p>Lai arī tavas interneta vietnes apmeklētāji varētu rakstīt latviski pat tad, ja datorā nav instalēta latviešu valodas taustiņu izkārtojuma, izmanto šo jQuery spraudni!</p>
+	<p><em>Apostrophe</em> pieejams Github’ā: <a href="https://github.com/taai/Apostrophe">https://github.com/taai/Apostrophe</a></p>
+	<p>Lai aktivizētu spraudni konkrētam ievades laukam:</p>
+	{% highlight javascript %}
+	$('#ievades_lauka_id').apostrophe();
+	{% endhighlight %}
+	<p>Lai lai deaktivizētu spraudni konkrētam ievades laukam:</p>
+	{% highlight javascript %}
+	$('#ievades_lauka_id').apostrophe(false);
+	{% endhighlight %}
+	<p>Lai aktivizētu spraudni visiem lapā esošajiem ievades laukiem:</p>
+	{% highlight javascript %}
+	$('textarea, input[type=text]').apostrophe();
+	{% endhighlight %}
+	<p>Saderība: jQuery 1.2 vai jaunāks</p>
+	<p>Pārlūkprogrammas: Firefox, Safari, Chrome, Internet Explorer 6+, Opera</p>
+	<p>Licence: <a href="http://www.opensource.org/licenses/mit-license.php" title="MIT license">MIT</a> un <a href="http://www.gnu.org/licenses/gpl.html" title="GPL license">GPL</a> - par brīvu!</p>
+</article>
+
+<script src="js/jquery.apostrophe.min.js"></script>
+<script>
+$('#demoTextarea').apostrophe();
+$('#enableApostrophe').attr('checked', true);
+
+$('#demoTextarea').one('click', function() {
+	this.value = '';
+});
+
+$('#enableApostrophe').change(function() {
+	$('#demoTextarea').apostrophe(this.checked);
+});
+</script>
