@@ -1,7 +1,4 @@
-title: Lidotājs programmē
-paginate: 5
-pygments: true
+theme: jekyll-theme-hacker
+title: Code like you mean it!
 permalink:   /:title
 pygments: true
-
-theme: jekyll-theme-hacker
