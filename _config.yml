@@ -3,3 +3,5 @@ paginate: 5
 pygments: true
 permalink:   /:title
 pygments: true
+
+theme: jekyll-theme-hacker
